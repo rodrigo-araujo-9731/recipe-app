@@ -35,6 +35,16 @@ const App = () => {
 
   return (
     <div className='App'>
+      <div className='alert'>
+        <span
+          className='closebtn'
+          onclick="this.parentElement.style.display = 'none';"
+        >
+          &times;
+        </span>
+        <strong>Important message:</strong> This website is under contruction!
+      </div>
+
       <form onSubmit={getSearch} className='search-form'>
         <input
           className='search-bar'
