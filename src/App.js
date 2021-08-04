@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Recipe from './Components/Recipe';
+import Notice from './Components/Notice'
 
 const App = () => {
   const APP_ID = 'e1960397';
@@ -10,10 +11,6 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('chicken');
 
-  useEffect(() => {
-    getRecipes();
-  }, [query]);
-
   const getRecipes = async () => {
     const response = await fetch(
       `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
@@ -22,6 +19,10 @@ const App = () => {
     setRecipes(data.hits);
     console.log(data.hits);
   };
+
+  useEffect(() => {
+    getRecipes();
+  }, [query]);
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
@@ -35,15 +36,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <div className='alert'>
-        <span
-          className='closebtn'
-          onclick="this.parentElement.style.display = 'none';"
-        >
-          &times;
-        </span>
-        <strong>Important message:</strong> This website is under contruction!
-      </div>
+      < Notice />
 
       <form onSubmit={getSearch} className='search-form'>
         <input
@@ -61,7 +54,7 @@ const App = () => {
           <Recipe
             key={recipe.recipe.calories}
             title={recipe.recipe.label}
-            calories={recipe.recipe.calories}
+            calories={Math.round(recipe.recipe.calories)}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients}
           />

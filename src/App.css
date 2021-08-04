@@ -31,28 +31,10 @@ h1 {
 }
 
 .recipes {
-  display: flex;
+  display: grid;
+  grid-template-columns: 45% 45%;
   justify-content: space-around;
-  flex-wrap: wrap;
+  column-width: 40%;
 }
 
-.alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
-}
 
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-}
