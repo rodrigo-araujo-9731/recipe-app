@@ -19,6 +19,6 @@
   color: black;
 }
 
-.close {
+div .close {
   display: none !important;
 }
