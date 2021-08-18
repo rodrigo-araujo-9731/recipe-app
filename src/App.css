@@ -32,9 +32,7 @@ h1 {
 
 .recipes {
   display: grid;
-  grid-template-columns: 45% 45%;
+  grid-template-columns: auto;
   justify-content: space-around;
-  column-width: 40%;
+  column-width: 10%;
 }
-
-
